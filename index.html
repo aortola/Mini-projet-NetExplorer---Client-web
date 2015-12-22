@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="initial-scale=1.0,user-scalable=yes"/>
+      <script src="js/lib/angular.min.js"></script>
+      <script src="js/lib/angular-route.min.js"></script>
+      <script src="js/lib/ui-bootstrap-tpls-0.14.3.min.js"></script>
+      <script src="js/lib/angular-animate.min.js"></script>
+      <script src="js/index.js"></script>
+      <script src="js/controllers/indexCtrl.js"></script>
+      <script src="js/controllers/authenticationCtrl.js"></script>
+      <script src="js/controllers/filesCtrl.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+      <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
+      <link rel="stylesheet" type="text/css" href="css/style.css"/>
+      <link rel="icon" type="image/png" href="images/logoNetExplorer.png"/>
+      <title>NetExplorer WebClient</title>
+    </head>
+    <body ng-controller="indexCtrl">
+      <div class="navbar navbar-default">
+          <h1>NetExplorer WebClient</h1>
+          <button id="disconnect" ng-show="connectionFctr.connected" ng-click="connectionFctr.logOut(targetURL)" class="btn btn-default glyphicon glyphicon-off"></button>
+      </div>
+      <div class="container">
+        <div ng-view></div>
+      </div>
+    </body>
+</html>

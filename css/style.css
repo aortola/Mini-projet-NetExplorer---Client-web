@@ -1,0 +1,25 @@
+h1,h2{
+	text-align: center;
+}
+
+.fileName,.folderName{
+	font-size: 12px;
+}
+
+.fileImg{
+	width:50px;
+}
+
+.folderImg{
+	width:80px;
+}
+
+.icon{
+	height:165px;
+}
+
+#disconnect{
+	position:absolute;
+	top:33px;
+	right:30%;
+}

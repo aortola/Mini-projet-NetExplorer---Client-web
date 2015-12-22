@@ -1,0 +1,38 @@
+<div ng-controller="filesCtrl">
+	<ol class="breadcrumb">
+	  <li ng-repeat="lvl in pathFctr.path"><a ng-click="folderFctr.getFilesFromFolder(targetURL,lvl.folderId,1)">{{lvl.folderName}}</a></li>
+	</ol>
+	<div class="row">
+		<div class="form-group">
+    		<label for="upFile">Uploader un fichier dans ce dossier : </label>
+			<input type="file" id="upFile" name="files[]" app-filereader ng-model="file" multiple/>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-2 thumbnail icon" ng-repeat="f in folderFctr.folder.content.folders">
+			<img class="folderImg" src="images/Folder.png"></img>
+			<div class="caption">
+				<div class="folderName">{{f.name}}</div>
+				<div class="btn-toolbar" role="toolbar">
+					<div class="btn-group btn-group-folder" role="group">
+						<button type="button" class="btn btn-default glyphicon glyphicon-arrow-down" ng-click="folderFctr.getFilesFromFolder(targetURL,f.id,1)"></button>
+						<button type="button" class="btn btn-default glyphicon glyphicon-trash"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-2 thumbnail icon" ng-repeat="f in folderFctr.folder.content.files">
+			<img class="fileImg" src="images/fileIcon.png"></img>
+			<div class="caption">
+				<div class="fileName">{{f.name}}</div>
+				<div class="btn-toolbar" role="toolbar">
+					<div class="btn-group btn-group-file" role="group">
+						<button type="button" class="btn btn-default glyphicon glyphicon-download-alt" ng-click="download(f.id,f.name)"></button>
+						<button type="button" class="btn btn-default glyphicon glyphicon-trash"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>			
