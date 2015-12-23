@@ -19,11 +19,15 @@
     </head>
     <body ng-controller="indexCtrl">
       <div class="navbar navbar-default">
-          <h1>NetExplorer WebClient</h1>
-          <button id="disconnect" ng-show="connectionFctr.connected" ng-click="connectionFctr.logOut(targetURL)" class="btn btn-default glyphicon glyphicon-off"></button>
+          <h1><img id="mainLogo" src="images/logoNetExplorer.png"></img>NetExplorer WebClient</h1>
+          <span id="login" ng-show="connectionFctr.connected"><i>Bienvenue, <em>{{connectionFctr.login}}</em> </i> <button ng-click="connectionFctr.logOut(targetURL)" class="btn btn-danger glyphicon glyphicon-off"></button></span>
       </div>
       <div class="container">
         <div ng-view></div>
       </div>
+      <footer class="navbar navbar-inverse navbar-fixed-bottom">
+          <p>This application is the property of <a href="https://www.netexplorer.fr/">NetExplorer.fr</a> &copy</p>
+          <i>Written by Adrien ORTOLA</i>
+      </footer>
     </body>
 </html>

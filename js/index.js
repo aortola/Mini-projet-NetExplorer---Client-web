@@ -17,7 +17,6 @@ app.config(function ($routeProvider){
 	$routeProvider.otherwise({redirectTo:'/authentication'});
 });
 
-
 app.directive('appFilereader', function($q) {
     var slice = Array.prototype.slice;
     return {
@@ -43,7 +42,6 @@ app.directive('appFilereader', function($q) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
                         deferred.resolve(e.target.result);
-                        alert(e.target.result.length);
                         scope.upload(file);
                     };
                     reader.onerror = function(e) {
@@ -139,6 +137,13 @@ app.factory('pathFctr',
 							factory.path.pop();
 						}
 					}
+				}
+			},
+			getParentFolder : function(){
+				if(factory.path.length>1){
+					return factory.path[factory.path.length-2];
+				}else{
+					return factory.path[0];
 				}
 			}
 		};

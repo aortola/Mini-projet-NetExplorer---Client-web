@@ -1,9 +1,10 @@
 <div ng-controller="filesCtrl">
 	<ol class="breadcrumb">
-	  <li ng-repeat="lvl in pathFctr.path"><a ng-click="folderFctr.getFilesFromFolder(targetURL,lvl.folderId,1)">{{lvl.folderName}}</a></li>
+		<button class="btn btn-danger glyphicon glyphicon-arrow-up" ng-click="folderFctr.getFilesFromFolder(targetURL,pathFctr.getParentFolder().folderId,1)"></button>
+		<li ng-repeat="lvl in pathFctr.path"><a class="foldersBreakdown" ng-click="folderFctr.getFilesFromFolder(targetURL,lvl.folderId,1)">{{lvl.folderName}}</a></li>
 	</ol>
 	<div class="row">
-		<div class="form-group">
+		<div class="well form-group">
     		<label for="upFile">Uploader un fichier dans ce dossier : </label>
 			<input type="file" id="upFile" name="files[]" app-filereader ng-model="file" multiple/>
 		</div>
@@ -17,7 +18,7 @@
 				<div class="btn-toolbar" role="toolbar">
 					<div class="btn-group btn-group-folder" role="group">
 						<button type="button" class="btn btn-default glyphicon glyphicon-arrow-down" ng-click="folderFctr.getFilesFromFolder(targetURL,f.id,1)"></button>
-						<button type="button" class="btn btn-default glyphicon glyphicon-trash"></button>
+						<button type="button" class="btn btn-default glyphicon glyphicon-trash" ng-click="deleteFolder(f.id,1)"></button>
 					</div>
 				</div>
 			</div>
@@ -29,7 +30,7 @@
 				<div class="btn-toolbar" role="toolbar">
 					<div class="btn-group btn-group-file" role="group">
 						<button type="button" class="btn btn-default glyphicon glyphicon-download-alt" ng-click="download(f.id,f.name)"></button>
-						<button type="button" class="btn btn-default glyphicon glyphicon-trash"></button>
+						<button type="button" class="btn btn-default glyphicon glyphicon-trash" ng-click="deleteFile(f.id,1)"></button>
 					</div>
 				</div>
 			</div>

@@ -9,5 +9,18 @@ app.controller('authenticationCtrl', ['$scope','connectionFctr',
 				$scope.login();
 			}
 		};
+
+		$scope.resetPassword=function(){
+			$http.post($scope.targetURL+'/reset_password',
+			{
+				"login_or_email": $scope.connection.login
+	        })
+	        .success(function(){
+	        	alert("An e-mail has been sent to you.");
+	        })
+	        .error(function(){
+	        	alert("This login doesn't exist.");
+	        });
+		}
 	}
 ]);
