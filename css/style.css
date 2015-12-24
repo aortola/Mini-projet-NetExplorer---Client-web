@@ -20,6 +20,10 @@ footer{
 	font-size: 8px;
 }
 
+#centralContainer{
+	margin-bottom: 50px;
+}
+
 .fileName,.folderName{
 	font-size: 12px;
 }
@@ -50,7 +54,15 @@ footer{
 	right:3px;
 	bottom:3px;
 }
-/**/
+
+.btn:hover{
+  border-color: red;
+}
+
+/**
+*	Petite animation d'apparition pour les fichiers et répertoires.
+*	Disponible sur la plupart des navigateurs.
+*/
 .icon{
 	-webkit-animation: fadein 0.3s; 
 	   -moz-animation: fadein 0.3s; 

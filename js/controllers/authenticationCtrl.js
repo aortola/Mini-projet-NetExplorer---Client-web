@@ -1,3 +1,9 @@
+/**
+*	Il s'agit du controleur de la page d'authentification.
+*	Il utilise essentiellement le module de connexion.
+*	Il permet d'effectuer la requête de connexion auprès de l'API NetExplorer et éventuellement de réinitialiser 
+*	un mot de passe perdu associer au login.(Sans autre vérification).
+*/
 app.controller('authenticationCtrl', ['$scope','connectionFctr',
 	function($scope,connectionFctr){
 		$scope.login=function(){

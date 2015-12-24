@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!--
+Page initiale de l'application. En plus d'importer toute les libraries javascripts et css, elle définit le point d'entrée de l'application pour angularJS. 
+Elle se divise en trois tiers: 
+- le header, constitué d'une barre de navigation, du titre de l'application etc.| Une fois l'utilisateur authentifié, un bouton de déconnexion viendra s'y ajouter.
+- le body, contenant une vue dynamique de la page courante qui changera en fonction du routage défini dans angularJS
+- le footer, pour les informations supplémentaires.
+-->
 <html ng-app="app">
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -7,10 +14,14 @@
       <script src="js/lib/angular-route.min.js"></script>
       <script src="js/lib/ui-bootstrap-tpls-0.14.3.min.js"></script>
       <script src="js/lib/angular-animate.min.js"></script>
-      <script src="js/index.js"></script>
+      <script src="js/routes.js"></script>
       <script src="js/controllers/indexCtrl.js"></script>
       <script src="js/controllers/authenticationCtrl.js"></script>
       <script src="js/controllers/filesCtrl.js"></script>
+      <script src="js/modules/connectionFctr.js"></script>
+      <script src="js/modules/folderFctr.js"></script>
+      <script src="js/modules/pathFctr.js"></script>
+      <script src="js/directives/appFileReader.js"></script>
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
       <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
       <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -18,11 +29,11 @@
       <title>NetExplorer WebClient</title>
     </head>
     <body ng-controller="indexCtrl">
-      <div class="navbar navbar-default">
+      <header class="navbar navbar-default">
           <h1><img id="mainLogo" src="images/logoNetExplorer.png"></img>NetExplorer WebClient</h1>
           <span id="login" ng-show="connectionFctr.connected"><i>Bienvenue, <em>{{connectionFctr.login}}</em> </i> <button ng-click="connectionFctr.logOut(targetURL)" class="btn btn-danger glyphicon glyphicon-off"></button></span>
-      </div>
-      <div class="container">
+      </header>
+      <div id="centralContainer" class="container">
         <div ng-view></div>
       </div>
       <footer class="navbar navbar-inverse navbar-fixed-bottom">
